@@ -1,0 +1,24 @@
+.loginButton{
+    position: relative !important;
+    height: 30px!important;
+}
+.m5 input{
+    margin:5px !important;
+}
+.m5 a{
+    margin:5px !important;
+}
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    height:30px;
+}
+
+
+a:hover, a:active {
+    background-color: red;
+}
