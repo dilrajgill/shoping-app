@@ -7,6 +7,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SignUpStepsComponent } from './sign-up-steps/sign-up-steps.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AppRoutingModule } from './/app-routing.module';
     ShopingFooterComponent,
     LandingPageComponent,
     HeaderComponentComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    SignUpStepsComponent
   ],
   imports: [
     BrowserModule,
