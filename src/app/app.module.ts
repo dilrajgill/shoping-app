@@ -7,7 +7,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './/app-routing.module';
+<<<<<<< HEAD
 import { FaqComponent } from './faq/faq.component';
+=======
+import { SignUpStepsComponent } from './sign-up-steps/sign-up-steps.component';
+>>>>>>> af77dc540185c797476411c2372894fccada16f2
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { FaqComponent } from './faq/faq.component';
     LandingPageComponent,
     HeaderComponentComponent,
     RegistrationComponent,
+<<<<<<< HEAD
     FaqComponent
+=======
+    SignUpStepsComponent
+>>>>>>> af77dc540185c797476411c2372894fccada16f2
   ],
   imports: [
     BrowserModule,
