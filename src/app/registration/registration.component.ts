@@ -9,15 +9,41 @@ import { CountryNamesService } from '../country-names.service'
 })
 export class RegistrationComponent implements OnInit {
   idVal: string;
-  countryName:any;
-  constructor(private route : ActivatedRoute, private CountryNamesService: CountryNamesService) { }
-
+  countryName: any;
+  step1: boolean = true;
+  step2: boolean = false;
+  step3: boolean = false;
+  constructor(private route: ActivatedRoute, private CountryNamesService: CountryNamesService) { }
+  
   ngOnInit() {
-   this.idVal = this.route.snapshot.paramMap.get('id');
-   this.getCountryList();
+    this.idVal = this.route.snapshot.paramMap.get('id');
+    this.getCountryList();
   }
-  getCountryList() :void {
+  step1Trigger(): void {
+    this.step1 = true;
+    this.step2 = false;
+    this.step3 = false;
+  }
+  step2Trigger(): void {
+    this.step2 = true;
+    this.step1 = false;
+    this.step3 = false;
+  }
+  step3Trigger(): void {
+    this.step1 = false;
+    this.step2 = false;
+    this.step3 = true;
+  }
+  submitForm(): void {
+
+  }
+  back2(): void {
+    this.step2Trigger();
+  }
+  back1(): void {
+    this.step1Trigger();
+  }
+  getCountryList(): void {
     this.CountryNamesService.getCountry().subscribe(data => this.countryName = data);
-    console.log('this.countryName : '+this.countryName.length);
-  }
+    }
 }
