@@ -8,6 +8,7 @@ import { HeaderComponentComponent } from './header-component/header-component.co
 import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SignUpStepsComponent } from './sign-up-steps/sign-up-steps.component';
+import { FaqComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SignUpStepsComponent } from './sign-up-steps/sign-up-steps.component';
     LandingPageComponent,
     HeaderComponentComponent,
     RegistrationComponent,
-    SignUpStepsComponent
+    SignUpStepsComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
