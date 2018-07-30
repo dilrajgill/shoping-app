@@ -1,7 +1,6 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-
-import { NgRedux, select } from '@angular-redux/store';
-import {  INITIAL_STATE } from '../store';
+import { Component, OnInit, OnChanges,Input } from '@angular/core';
+import { NgRedux } from '@angular-redux/store';
+import { IAppState } from '../store';
 @Component({
   selector: 'app-sign-up-steps',
   templateUrl: './sign-up-steps.component.html',
@@ -9,17 +8,23 @@ import {  INITIAL_STATE } from '../store';
 })
 export class SignUpStepsComponent implements OnInit,OnChanges {
 
-  constructor() { }
+  constructor(private store: NgRedux<IAppState>) { }
 
 
-  @select() step1;
-  @select() step2;
-  @select() step3;
+  step1: boolean = true;
+  step2:boolean = false;
+  step3:boolean = false;
   ngOnInit() {
-   
+   this.fetchValue();
   }
   ngOnChanges() {
-    console.log(INITIAL_STATE.step1);
+    
   }
-
+fetchValue() {
+  this.store.subscribe( () =>{
+    this.step1 = this.store.getState().step1;    
+    this.step2 = this.store.getState().step2;    
+    this.step3 = this.store.getState().step3;
+    }  );
+  }
 }

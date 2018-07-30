@@ -1,5 +1,6 @@
 import { REMOVE_ALL_TODOS,UPDATE_NAME,STEP_1 ,STEP_2, STEP_3 } from './actions';
 
+import { Observable, of } from 'rxjs';
 export interface IAppState {
     lastUpdate: Date;
     myName: string;
@@ -17,6 +18,10 @@ export const INITIAL_STATE: IAppState = {
     step3: false,
 
 }
+
+export function store(): Observable<IAppState> {
+    return of(INITIAL_STATE);
+  }
 export function rootReducer(state: IAppState, action): IAppState {
     switch (action.type) {
       case UPDATE_NAME:
