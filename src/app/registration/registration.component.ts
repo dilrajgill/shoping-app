@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GeoApiService } from '../geo-api.service';
 import { CountryNamesService } from '../country-names.service';
-import { myName } from '../todo';
 import { REMOVE_ALL_TODOS, UPDATE_NAME, STEP_1, STEP_2, STEP_3 } from '../actions';
 import { NgRedux, select } from '@angular-redux/store';
 import { IAppState } from '../store';

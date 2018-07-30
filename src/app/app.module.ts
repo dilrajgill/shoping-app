@@ -12,6 +12,7 @@ import { FaqComponent } from './faq/faq.component';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { HttpClientModule } from'@angular/common/http';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from'@angular/common/http';
     HeaderComponentComponent,
     RegistrationComponent,
     SignUpStepsComponent,
-    FaqComponent
+    FaqComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

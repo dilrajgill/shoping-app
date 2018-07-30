@@ -19,9 +19,6 @@ export const INITIAL_STATE: IAppState = {
 
 }
 
-export function store(): Observable<IAppState> {
-    return of(INITIAL_STATE);
-  }
 export function rootReducer(state: IAppState, action): IAppState {
     switch (action.type) {
       case UPDATE_NAME:

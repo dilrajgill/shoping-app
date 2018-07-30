@@ -4,6 +4,7 @@ import {LandingPageComponent} from './landing-page/landing-page.component';
 import {RegistrationComponent} from './registration/registration.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FaqComponent } from './faq/faq.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 const routes: Routes = [
@@ -11,8 +12,8 @@ const routes: Routes = [
   {path:'' , redirectTo: '/landing', pathMatch: 'full' },
   {path:'registration/:id' , component: RegistrationComponent},   
   {path:'landing' , component: LandingPageComponent},   
-  {path:'faq' , component: FaqComponent},
-  {path:'**' , component: LandingPageComponent}
+  {path:'faq' , component: FaqComponent},  
+  {path:'**' , component: ErrorPageComponent}
 
 ];
 @NgModule({
