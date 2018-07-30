@@ -1,5 +1,25 @@
 <ul>
-  <li class='w30'><div class="active" href="#home">Personal Details</div></li>
-  <li class='w30'><div >Address</div></li>
-  <li class='w30'><div >Terms and Conditions</div></li>
+  <div  *ngIf='step1|async'>
+  <li class='w30'>
+    <div class="active">
+       Personal Details</div></li>
+       <li class='w30'><div>Address</div></li>
+       <li class='w30'><div>Terms and Conditions</div></li>
+       <li class='w30' *ngIf='!step1|async'><div >
+          Personal Details</div></li> </div>
+          <div  *ngIf='step2|async'>
+              <li class='w30'>
+                <div >
+                   Personal Details</div></li>
+                   <li class='w30'><div class="active">Address</div></li>
+                   <li class='w30' ><div>Terms and Conditions</div></li>
+                   </div>
+                      <div  *ngIf='step3|async'>
+                          <li class='w30'>
+                            <div >
+                               Personal Details</div></li>
+                               <li class='w30'><div >Address</div></li>
+                               <li class='w30' ><div class="active">Terms and Conditions</div></li>
+                              
+                               </div>
 </ul>

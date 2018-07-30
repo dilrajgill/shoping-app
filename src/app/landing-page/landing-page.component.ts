@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {FetchTextMessagesService} from '../fetch-text-messages.service';
-
+import { NgRedux, select } from '@angular-redux/store';
+import { IAppState } from '../store';
+import { REMOVE_ALL_TODOS } from '../actions';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
+  @select() lastUpdate;
+  @select() myName;
+
   signInToday : string;
   get : string;
   discount : string;
@@ -17,14 +22,13 @@ export class LandingPageComponent implements OnInit {
   userNumber: number;
   userId: string;
   landingPageText :any;
-  constructor(private textMessages :FetchTextMessagesService) { }
+  constructor(private textMessages :FetchTextMessagesService,private ngRedux: NgRedux<IAppState>) { }
 
   ngOnInit() {
     this.fetchTextValues();
     console.log('ngOnInit');
     this.userNumber =10;
     this.landingPageText = this.textMessages.landingPageKeys;
-    console.log('this.landingPageText'+this.landingPageText)
   }
   ngOnChanges() {   
     console.log('ngOnChange');

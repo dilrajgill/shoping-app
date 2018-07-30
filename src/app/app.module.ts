@@ -9,6 +9,9 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { SignUpStepsComponent } from './sign-up-steps/sign-up-steps.component';
 import { FaqComponent } from './faq/faq.component';
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { HttpClientModule } from'@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,14 @@ import { FaqComponent } from './faq/faq.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule
+    AppRoutingModule,
+    NgReduxModule,FormsModule,HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor (ngRedux: NgRedux<IAppState>) {
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+}
+}

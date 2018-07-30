@@ -9,7 +9,7 @@
                         </div>
                         <div class="row">
                                 <div class="col-15 "> <label for="fname">Username</label> </div>
-                                <div class="col-25"> <input type="text" id="fname" /> </div>
+                                <div class="col-25"> <input type="text" id="fname" (blur)='onUpdate()'/> </div>
                         </div>
                         <div class="row">
                                 <div class="col-15 "> <label for="lname">Password</label> </div>
@@ -25,17 +25,22 @@
             <h3>Shipping Details</h3>
                 <form action="/action_page.php">
                         <div class="row">
-                                <div class="col-15 "> <label for="fname">Address: </label> </div>
-                                <div class="col-25"> <input type="text" id="address" /> </div>
+                                <div class="col-15 "> <label for="fname">Postal Code: </label> </div>
+                                <div class="col-25"> <input type="text" id="postal" [(ngModel)]='postalCode' name='postalCode' (blur)='fetchPostal()'/> </div>
                         </div>
                         <div class="row">
-                                <div class="col-15 "> <label for="lname">Street </label> </div>
-                                <div class="col-25"> <input type="text" id="street" name="street" placeholder=""> </div>
+                                <div class="col-15 "> <label for="fname">Address: </label> </div>
+                                <div class="col-25"> <input type="text" id="address" [(ngModel)]='address' name='address' (blur)='fetchAdd()'/> </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-15 "> <label for="lname">city </label> </div>
+                                <div class="col-25"> <input type="text" id="city" name="city" [(ngModel)]='city' placeholder="" > </div>
                         </div>
                         <div class="row">
                                 <div class="col-15 "> <label for="lname">State </label> </div>
-                                <div class="col-25"> <input type="text" id="state" name="state" placeholder="" (click)='step3Trigger()'> </div>
+                                <div class="col-25"> <input type="text" id="state" name="state" [(ngModel)]='state' placeholder=""> </div>
                         </div>
+                        
                         <div class="row">
                                 <div class="col-15 "> <label for="country">Country</label> </div>
                                 <div class="col-25"> <select id="country" name="country"> <option *ngFor="let country of countryName" value={{country.code}}>{{country.name}}</option> </select> </div>
@@ -59,4 +64,9 @@
                         </div>
                 </form>
         </div>
+        
+        <div class="row">
+                        <div class="col-15 "> </div><div class="col-50 "> </div>
+                        <div class="col-25" *ngIf='lastFlag|async'>last Update: {{ (lastUpdate | async) | date:'mediumTime' }} </div>
+                </div>
 </section>
