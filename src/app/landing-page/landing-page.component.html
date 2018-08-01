@@ -3,17 +3,20 @@
       <div class="row align-items-center">
           <!-- Newsletter Text -->
           <div class="col-12 col-lg-6 col-xl-7">
+            
               <div class="newsletter-text mb-100">
-                  <h2>{{signInToday}}  <span>{{get}}{{discountNumb}}{{percentSign}}{{discount}}</span></h2>
+                  <h2> 
+                       {{signInToday}}  <span>{{get}}{{discountNumb}}{{percentSign}}{{discount}}</span></h2>
               <p>{{introduction}}</p>
                 </div>
           </div>
           <!-- Newsletter Form -->
           <div class="col-12 col-lg-6 col-xl-5">
               <div class="newsletter-form mb-100 m5">
+                  
                   <form action="#" method="post">
                     <div class="row">                  
-                      <input type="text" name="userName" class="nl-email" [(ngModel)]='userId' placeholder="User Name" (blur)='incrementCustomer()'>                  
+                      <input type="text" name="userName" class="nl-email" [(ngModel)]='userId'  placeholder="User Name" (blur)='incrementCustomer()'>                  
                     </div>
                     <div class="row">                  
                       <input type="password" name="password" class="nl-email" placeholder="Password">                  

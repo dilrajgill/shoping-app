@@ -78,6 +78,9 @@ input[type=submit]:hover {
     margin-left: 15px;
 
 }
+.col-50 {
+    width: 50% !important;
+    }
 .registrationBackground {
     background-color :#f2f2f2;
 }

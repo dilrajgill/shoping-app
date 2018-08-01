@@ -1,5 +1,8 @@
 <ul>
-  <li class='w30'><div class="active" href="#home">Personal Details</div></li>
-  <li class='w30'><div >Address</div></li>
-  <li class='w30'><div >Terms and Conditions</div></li>
+  <li class='w30'>
+    <div [ngClass]="{'active' : step1}">
+       Personal Details</div></li>
+       <li class='w30'><div [ngClass]="{'active' : step2}">Address</div></li>
+       <li class='w30'><div [ngClass]="{'active' : step3}">Terms and Conditions</div></li>
+     
 </ul>

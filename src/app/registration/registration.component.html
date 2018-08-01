@@ -1,62 +1,111 @@
 <app-sign-up-steps></app-sign-up-steps>
 <section class="newsletter-area parent registrationBackground">
-  <div class="container" [hidden]='!step1'>
-            <h3>Registration only 3 steps away</h3>
-                <form action="/action_page.php">
+        <div class="container" [hidden]='!step1'>
+                <h3>Registration only 3 steps away</h3>
+                <form #f="ngForm" (ngSubmit)='form1Submit()'>
                         <div class="row">
-                                <div class="col-15 "> <label for="fname">CustomerID</label> </div>
-                                <div class="col-25"> <input type="text" id="customerID" value={{idVal}} readonly/> </div>
+                                <div class="col-15 ">
+                                        <label for="fname">CustomerID</label>
+                                </div>
+                                <div class="col-25">
+                                        <input type="text" id="customerID" value={{idVal}} readonly/> </div>
                         </div>
                         <div class="row">
-                                <div class="col-15 "> <label for="fname">Username</label> </div>
-                                <div class="col-25"> <input type="text" id="fname" /> </div>
+                                <div class="col-15 ">
+                                        <label for="fname">Username</label>
+                                </div>
+                                <div class="col-25">
+                                        <input type="text" id="fname" (blur)='onUpdate()' required/> </div>
                         </div>
                         <div class="row">
-                                <div class="col-15 "> <label for="lname">Password</label> </div>
-                                <div class="col-25"> <input type="text" id="lname" name="lastname" placeholder="Password"> </div>
+                                <div class="col-15 ">
+                                        <label for="lname">Password</label>
+                                </div>
+                                <div class="col-25">
+                                        <input type="text" id="lname" name="lastname" placeholder="Password" required> </div>
                         </div>
                         <div class="row">
                                 <div class="col-15 "> </div>
-                                <div class="col-25"> <a>Back</a> <input type="submit" value="Next" (click)='step2Trigger()'> </div>
+                                <div class="col-25">
+                                        <a>Back</a>
+                                        <input type="submit" value="Next" (click)='step2Trigger()'> </div>
                         </div>
                 </form>
         </div>
-        <div class="container" [hidden]='!step2'> 
-            <h3>Shipping Details</h3>
+        <div class="container" [hidden]='!step2'>
+                <h3>Shipping Details</h3>
                 <form action="/action_page.php">
                         <div class="row">
-                                <div class="col-15 "> <label for="fname">Address: </label> </div>
-                                <div class="col-25"> <input type="text" id="address" /> </div>
+                                <div class="col-15 ">
+                                        <label for="fname">Postal Code: </label>
+                                </div>
+                                <div class="col-25">
+                                        <input type="text" id="postal" [(ngModel)]='postalCode' name='postalCode' (blur)='fetchPostal()'
+                                        /> </div>
                         </div>
                         <div class="row">
-                                <div class="col-15 "> <label for="lname">Street </label> </div>
-                                <div class="col-25"> <input type="text" id="street" name="street" placeholder=""> </div>
+                                <div class="col-15 ">
+                                        <label for="fname">Address: </label>
+                                </div>
+                                <div class="col-25">
+                                        <input type="text" id="address" [(ngModel)]='address' name='address' (blur)='fetchAdd()'
+                                        /> </div>
                         </div>
                         <div class="row">
-                                <div class="col-15 "> <label for="lname">State </label> </div>
-                                <div class="col-25"> <input type="text" id="state" name="state" placeholder="" (click)='step3Trigger()'> </div>
+                                <div class="col-15 ">
+                                        <label for="lname">city </label>
+                                </div>
+                                <div class="col-25">
+                                        <input type="text" id="city" name="city" [(ngModel)]='city' placeholder=""> </div>
                         </div>
                         <div class="row">
-                                <div class="col-15 "> <label for="country">Country</label> </div>
-                                <div class="col-25"> <select id="country" name="country"> <option *ngFor="let country of countryName" value={{country.code}}>{{country.name}}</option> </select> </div>
+                                <div class="col-15 ">
+                                        <label for="lname">State </label>
+                                </div>
+                                <div class="col-25">
+                                        <input type="text" id="state" name="state" [(ngModel)]='state' placeholder=""> </div>
+                        </div>
+
+                        <div class="row">
+                                <div class="col-15 ">
+                                        <label for="country">Country</label>
+                                </div>
+                                <div class="col-25">
+                                        <select id="country" name="country" [(ngModel)]='country'>
+                                                <option *ngFor="let country of countryName" value={{country.code}}>{{country.name}}</option>
+                                        </select>
+                                </div>
                         </div>
                         <div class="row">
                                 <div class="col-15 "> </div>
-                                <div class="col-25"> <a (click)='back1()'>Back</a> <input type="submit" value="Next" (click)='step3Trigger()'> </div>
+                                <div class="col-25">
+                                        <a (click)='back1()'>Back</a>
+                                        <input type="submit" value="Next" (click)='step3Trigger()'> </div>
                         </div>
                 </form>
         </div>
-        <div class="container" [hidden]='!step3'> 
-          <h3>Terms And Conditions</h3>
+        <div class="container" [hidden]='!step3'>
+                <h3>Terms And Conditions</h3>
                 <form action="/action_page.php">
                         <div class="row">
-                                <div class="col-15 "> <label for="subject">Conditions</label> </div>
-                                <div class="col-25"> <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea> </div>
+                                <div class="col-15 ">
+                                        <label for="subject">Conditions</label>
+                                </div>
+                                <div class="col-25">
+                                        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea> </div>
                         </div>
                         <div class="row">
                                 <div class="col-15 "> </div>
-                                <div class="col-25"> <a (click)='back2()'>Back</a> <input type="submit" value="Submit" (click)='submitForm()'> </div>
+                                <div class="col-25">
+                                        <a (click)='back2()'>Back</a>
+                                        <input type="submit" value="Submit" (click)='submitForm()'> </div>
                         </div>
                 </form>
+        </div>
+
+        <div class="row">
+                <div class="col-15 "> </div>
+                <div class="col-50 "> </div>
+                <div class="col-25" *ngIf='lastFlag|async'>last Update: {{ (lastUpdate | async) | date:'mediumTime' }} </div>
         </div>
 </section>
