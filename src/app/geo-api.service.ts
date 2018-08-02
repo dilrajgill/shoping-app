@@ -20,6 +20,6 @@ export class GeoApiService {
   constructor(private http:HttpClient) { }
     getAddress (postal: string) {
     return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+postal)
-    .map(res =>  res)
+    
   }
 }

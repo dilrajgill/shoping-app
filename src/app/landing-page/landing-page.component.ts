@@ -3,6 +3,7 @@ import {FetchTextMessagesService} from '../fetch-text-messages.service';
 import { NgRedux, select } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { REMOVE_ALL_TODOS } from '../actions';
+import {FetchDataService} from '../fetch-data.service';
 @Component({
   selector: 'app-landing-page',
   templateUrl: './landing-page.component.html',
@@ -22,13 +23,18 @@ export class LandingPageComponent implements OnInit {
   userNumber: number;
   userId: string;
   landingPageText :any;
-  constructor(private textMessages :FetchTextMessagesService,private ngRedux: NgRedux<IAppState>) { }
+  email :any;
+  constructor(private textMessages :FetchTextMessagesService,private ngRedux: NgRedux<IAppState>,private emailService:FetchDataService) { }
 
   ngOnInit() {
     this.fetchTextValues();
     console.log('ngOnInit');
     this.userNumber =10;
     this.landingPageText = this.textMessages.landingPageKeys;
+    this.email ={'abc':''};
+    this.emailService.validEmailId().subscribe(data => this.email =data
+      );
+      console.log('this.email : '+this.email);
   }
   ngOnChanges() {   
     console.log('ngOnChange');
@@ -37,7 +43,7 @@ export class LandingPageComponent implements OnInit {
   incrementCustomer() : void {
     console.log('inside incrementCustomer');
     this.userNumber = this.userNumber +1;
-    console.log('this.userNumber :'+this.userId);
+    console.log('this.userNumber :'+this.userNumber);
   } 
   fetchTextValues() : void {
     this.signInToday = 'Sign In Today'; 
@@ -46,6 +52,5 @@ export class LandingPageComponent implements OnInit {
     this.discount = 'Discount';
     this.login = 'Login';
     this.introduction ='See Special Offers on Canada\'s number ONE shopping website.Ours is the fourth most valuable public company in the world (behind only Apple, Alphabet, and Microsoft), the largest Internet company by revenue in the world, and after Walmart, the second largest employer in the United States.';
-  
-  }
+    }
 }

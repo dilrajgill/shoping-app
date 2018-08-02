@@ -1,0 +1,16 @@
+<span> U searched :{{searchItem1}}</span>
+<table id="customers">
+    <tr>
+      <th>Item Number</th>
+      <th>Item</th>
+      <th>Description</th>
+      </tr>
+    <tr *ngFor='let a of picApi'>
+     <td  *ngIf='a.id<10' >{{a.id}}</td>
+      <td  *ngIf='a.id<10'  ><img [src]=[a.thumbnailUrl]/></td>     
+      <td *ngIf='a.id<10'>{{a.title}}</td> 
+    </tr>
+    
+    
+  </table>
+  

@@ -9,7 +9,10 @@ describe('CountryNamesService', () => {
     });
   });
 
-  it('should be created', inject([CountryNamesService], (service: CountryNamesService) => {
+  it('Service is there', inject([CountryNamesService], (service: CountryNamesService) => {
     expect(service).toBeTruthy();
+  }));
+  it('function get Country is there', inject([CountryNamesService], (service: CountryNamesService) => {
+    expect(service.getCountry).toBeTruthy();
   }));
 });

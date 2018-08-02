@@ -7,7 +7,17 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponentComponent implements OnInit {
 
   constructor() { }
+  showResults : boolean = false;
+  searchItem:string = '';
   ngOnInit() {
   }
+  search():void {
+    if(this.searchItem.length>3)
+    {
+    this.showResults = true;
+  }
+else{
+  this.showResults = false;
+}}
 
 }

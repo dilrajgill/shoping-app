@@ -13,6 +13,9 @@ import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
 import { HttpClientModule } from'@angular/common/http';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { LoggedInUserComponent } from './logged-in-user/logged-in-user.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     RegistrationComponent,
     SignUpStepsComponent,
     FaqComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    LoggedInUserComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

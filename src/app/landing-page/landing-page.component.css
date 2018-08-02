@@ -22,3 +22,6 @@ a:link, a:visited {
 a:hover, a:active {
     background-color: red;
 }
+.container{
+    min-height:400px !important;
+}
