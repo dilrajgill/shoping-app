@@ -15,6 +15,24 @@
                                         <label for="fname">Username</label>
                                 </div>
                                 <div class="col-25">
+                                                <input id="name" name="name" class="form-control" 
+                                                required minlength="4" appForbiddenName="bobb"
+                                                [(ngModel)]="nameI" #name="ngModel" >
+                                          
+                                          <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                              class="alert alert-danger">
+                                          
+                                            <div *ngIf="name.errors.required">
+                                              Name is required.
+                                            </div>
+                                            <div *ngIf="name.errors.minlength">
+                                              Name must be at least 4 characters long.
+                                            </div>
+                                            <div *ngIf="name.errors.forbiddenName">
+                                              Name cannot be Bob.
+                                            </div>
+                                          
+                                          </div>
                                         <input type="text" id="fname" (blur)='onUpdate()' required/> </div>
                         </div>
                         <div class="row">
@@ -28,7 +46,7 @@
                                 <div class="col-15 "> </div>
                                 <div class="col-25">
                                         <a>Back</a>
-                                        <input type="submit" value="Next" (click)='step2Trigger()'> </div>
+                                        <input type="submit"  id="submitButton" value="Next" (click)='step2Trigger()'> </div>
                         </div>
                 </form>
         </div>

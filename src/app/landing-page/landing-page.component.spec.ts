@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LandingPageComponent } from './landing-page.component';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
-import { HttpClientModule } from'@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from '..//app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
@@ -19,11 +19,12 @@ describe('LandingPageComponent suit', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-        imports: [  BrowserModule, AppRoutingModule,NgReduxModule,FormsModule,HttpClientModule],
-        providers: [{provide: APP_BASE_HREF, useValue : '/' }],
-      declarations: [ LandingPageComponent,SignUpStepsComponent,RegistrationComponent,FaqComponent,LoggedInUserComponent,ErrorPageComponent ]
+      imports: [BrowserModule, AppRoutingModule, NgReduxModule, FormsModule, HttpClientModule],
+      providers: [{ provide: APP_BASE_HREF, useValue: '/' }],
+      declarations: [LandingPageComponent, SignUpStepsComponent,
+        RegistrationComponent, FaqComponent, LoggedInUserComponent, ErrorPageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -35,6 +36,5 @@ describe('LandingPageComponent suit', () => {
   it('testcase1 ', () => {
      component.incrementCustomer();
      expect(component.userNumber).toBe(11);
-  
   });
 });

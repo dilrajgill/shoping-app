@@ -16,16 +16,17 @@
                   
                   <form action="#" method="post">
                     <div class="row">                  
-                      <input type="text" name="userName" class="nl-email" [(ngModel)]='userId'  placeholder="User Name" (blur)='incrementCustomer()'>                  
+                      <input type="text" name="user" class="nl-email" [(ngModel)]='userId'  placeholder="User Name" (blur)='incrementCustomer()'>                  
                     </div>
                     <div class="row">                  
                       <input type="password" name="password" class="nl-email" placeholder="Password">                  
                     </div>
                     <div class="row">                  
                       <input type="submit" class="loginButton" value={{login}} routerLink='/login'>       
-                      <a href="" routerLink="/registration/{{userNumber}}" >Sign Up!</a>           
+                      <a id="signUp" class="link" href="" routerLink="/registration/{{userId}}" >Sign Up!</a>           
                     </div>                  
                   </form>
+                  
               </div>
           </div>
       </div>
